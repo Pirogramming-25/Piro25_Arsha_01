@@ -1,7 +1,7 @@
 # Piro25_Arsha_01
 
 <br>
-## 📌 Git Convention
+📌 Git Convention
 
 ### (1) Branch type
 - 기본 브랜치
