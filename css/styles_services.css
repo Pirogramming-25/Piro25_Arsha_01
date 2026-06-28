@@ -1,8 +1,12 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+
 /* ===== Services Section ===== */
 
 #services {
-    padding: 80px 0;
-    background-color: #f3f5fa;
+    padding: 60px 0;
+    background-color: #f5f6f8;
+    scroll-margin-top: 88px; /* fixed header offset */
+    overflow: clip; /* clip fade-up overflow */
 }
 
 .container {
@@ -14,10 +18,12 @@
 /* Section Title */
 .section-title {
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
+    position: relative;
 }
 
 .section-title h2 {
+    font-family: 'Jost', sans-serif;
     font-size: 32px;
     font-weight: 700;
     text-transform: uppercase;
@@ -25,9 +31,9 @@
     padding-bottom: 20px;
     position: relative;
     color: #37517e;
-
 }
 
+/* title underline + accent bar */
 .section-title h2::before {
     content: '';
     position: absolute;
@@ -90,10 +96,10 @@
 }
 
 .service-card h4 {
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 700;
     color: #37517e;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .service-card p {
@@ -107,7 +113,7 @@
 @keyframes fade-up {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -115,18 +121,18 @@
     }
 }
 
+/* fallback: no scroll-driven animation */
 @supports (animation-timeline: view()) {
-    /* 타이틀: 뷰포트에 진입하자마자 바로 올라옴 */
     .section-title {
         animation: fade-up 0.6s ease both;
         animation-timeline: view();
         animation-range: entry 0% entry 35%;
     }
 
-    /* 카드: 조금 더 스크롤해야 올라옴 */
     .service-card {
         animation: fade-up 0.6s ease both;
         animation-timeline: view();
         animation-range: entry 15% entry 50%;
     }
 }
+
