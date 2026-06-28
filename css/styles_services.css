@@ -1,0 +1,132 @@
+/* ===== Services Section ===== */
+
+#services {
+    padding: 80px 0;
+    background-color: #f3f5fa;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #37517e;
+
+}
+
+.section-title h2::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 160px;
+    height: 1px;
+    background: #aaa;
+    bottom: 1px;
+    left: calc(50% - 80px);
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #47b2e4;
+    bottom: 0;
+    left: calc(50% - 30px);
+}
+
+.section-title p {
+    color: #444444;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Services Grid - 4 columns */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Service Card */
+.service-card {
+    background: #fff;
+    padding: 30px 30px 30px 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Icon */
+.service-card .icon {
+    margin-bottom: 20px;
+    color: #47b2e4;
+}
+
+.service-card .icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.service-card h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #37517e;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* ===== Scroll Animations ===== */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+    /* 타이틀: 뷰포트에 진입하자마자 바로 올라옴 */
+    .section-title {
+        animation: fade-up 0.6s ease both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 35%;
+    }
+
+    /* 카드: 조금 더 스크롤해야 올라옴 */
+    .service-card {
+        animation: fade-up 0.6s ease both;
+        animation-timeline: view();
+        animation-range: entry 15% entry 50%;
+    }
+}
