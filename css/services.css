@@ -19,6 +19,11 @@
     padding: 0 15px;
 }
 
+#services .container {
+    max-width: 1320px;
+    padding: 0 30px;
+}
+
 /* Section Title */
 .section-title {
     text-align: center;
@@ -101,9 +106,10 @@
     color: var(--color-main);
 }
 
-.service-card .icon svg {
-    width: 40px;
-    height: 40px;
+.service-card .icon svg,
+.service-card .icon img {
+    width: 36px;
+    height: 36px;
 }
 
 .service-card h4 {
@@ -125,9 +131,9 @@
 .stretched-link::after {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -15px;
     bottom: 0;
-    left: 0;
+    left: -15px;
     z-index: 1;
     content: "";
 }
@@ -141,14 +147,21 @@
 
 /* ===== 반응형 ===== */
 
-/* lg 이하 (991px): 4열 → 2열 */
+/* xl 이하 (1199px): 4열 → 2열 */
+@media (max-width: 1199px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* lg 이하 (991px): 패딩 축소 */
 @media (max-width: 991px) {
     #services {
         padding: 50px 0;
     }
 
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
 }
