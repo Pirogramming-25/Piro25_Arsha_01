@@ -1,11 +1,11 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Jost:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Jost:wght@400;600;700&display=swap');
 
 /* ===== Services Section ===== */
 
 #services {
     padding: 60px 0;
     background-color: #f5f6f8;
-    color: #444444;
+    color: var(--color-text);
     font-family: "Open Sans", system-ui, sans-serif;
     scroll-margin-top: 88px;
     overflow: clip;
@@ -34,7 +34,7 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
-    color: #37517e;
+    color: var(--color-dark);
 }
 
 /* title underline + accent bar */
@@ -44,7 +44,7 @@
     display: block;
     width: 160px;
     height: 1px;
-    background: rgba(68, 68, 68, 0.4);
+    background: color-mix(in srgb, var(--color-text), transparent 60%);
     bottom: 1px;
     left: 0;
     right: 0;
@@ -57,7 +57,7 @@
     display: block;
     width: 60px;
     height: 3px;
-    background: #47b2e4;
+    background: var(--color-main);
     bottom: 0;
     left: 0;
     right: 0;
@@ -65,7 +65,7 @@
 }
 
 .section-title p {
-    color: #444444;
+    color: var(--color-text);
     font-size: 16px;
     margin: 0;
 }
@@ -74,30 +74,31 @@
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
 }
 
 /* Service Card */
 .service-card {
-    background: #fff;
+    background: var(--color-white);
     padding: 30px 30px 30px 30px;
     border-radius: 4px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
     text-align: left;
     border-top: 3px solid transparent;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+    translate: 0 0;
+    transition: translate 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+    translate: 0 -6px;
 }
 
 /* Icon */
 .service-card .icon {
     margin-bottom: 20px;
-    color: #47b2e4;
+    color: var(--color-main);
 }
 
 .service-card .icon svg {
@@ -112,13 +113,13 @@
 }
 
 .service-card h4 a {
-    color: #37517e;
+    color: var(--color-dark);
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .service-card:hover h4 a {
-    color: #47b2e4;
+    color: var(--color-main);
 }
 
 .stretched-link::after {
