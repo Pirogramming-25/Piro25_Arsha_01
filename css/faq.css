@@ -83,7 +83,7 @@
     font-weight: 700;           
 }
 
-/* 답변 텍스트 */
+
 .faq_card_answer {
     margin-top: 12px;
     font-size: 16px;
@@ -107,12 +107,10 @@
     color: #47b2e4;
 }
 
-/* 화살표 자체에 마우스 올렸을 때만 - 화살표만 색 변경 */
 .faq_card_arrow:hover {
     color: #47b2e4;
 }
 
-/* ===== 제목(title) 애니메이션 - 아래에서 위로 ===== */
 @keyframes faq-title-fade-up {
     from {
         opacity: 0;
@@ -137,7 +135,6 @@
 
 @supports (animation-timeline: view()) {
 
-    /* 제목 영역에 적용 */
     .faq_title {
         opacity: 0;
         animation: faq-title-fade-up 0.8s ease-in-out both;
@@ -145,7 +142,6 @@
         animation-range: entry 0% cover 30%;
     }
 
-    /* 카드 하나하나에 적용 */
     .faq_card {
         opacity: 0;
         animation: faq-card-fade-up 0.8s ease-in-out both;
@@ -154,7 +150,7 @@
     }
 }
 
-/* 카드 5개가 순서대로(위에서부터) 하나씩 뜨도록 딜레이 부여 */
+
 .faq_card:nth-child(1) {
     animation-delay: 0s;
 }
