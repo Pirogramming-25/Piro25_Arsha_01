@@ -1,0 +1,172 @@
+#faq {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f5f6f8; color: #444444;
+    overflow: clip;
+    scroll-margin-top: 88px;
+}
+
+
+.faq_title_header {
+    font-family: 'Jost', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #37517e;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.faq_title_line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 0;
+}
+
+.line_gray {
+    width: 60px; height: 1px;
+    background: #ccc;
+}
+
+.line_blue {
+    width: 60px; height: 3px;
+    background: #47b2e4;
+}
+
+.faq_title_desc {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    max-width: 1300px;
+    margin: 20px auto;
+}
+
+.faq_cards {
+    max-width: 1075px;
+    margin: 70px auto 0;
+    text-align: left;
+}
+
+
+.faq_card {
+    background: #fff;
+    padding: 20px 25px 18px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    
+}
+
+
+.faq_card_question {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    list-style: none;
+    color: #37517e;
+    margin: 0;       
+    line-height: 1;
+}
+
+.faq_card_icon{
+    color: #47b2e4;
+    display: inline-flex;       
+    align-items: center;        
+    justify-content: center;   
+    width: 20px;             
+    height: 20px;               
+    min-width: 20px;             
+    border: 2px solid #47b2e4;   
+    border-radius: 50%;         
+    font-weight: 700;           
+}
+
+/* 답변 텍스트 */
+.faq_card_answer {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.faq_card_arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq_card[open] .faq_card_arrow {
+    transform: rotate(90deg);   
+}
+
+.faq_card_text {
+    transition: color 0.3s ease;
+}
+
+.faq_card_text:hover {
+    color: #47b2e4;
+}
+
+/* 화살표 자체에 마우스 올렸을 때만 - 화살표만 색 변경 */
+.faq_card_arrow:hover {
+    color: #47b2e4;
+}
+
+/* ===== 제목(title) 애니메이션 - 아래에서 위로 ===== */
+@keyframes faq-title-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes faq-card-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+
+    /* 제목 영역에 적용 */
+    .faq_title {
+        opacity: 0;
+        animation: faq-title-fade-up 0.8s ease-in-out both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+    }
+
+    /* 카드 하나하나에 적용 */
+    .faq_card {
+        opacity: 0;
+        animation: faq-card-fade-up 0.8s ease-in-out both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+    }
+}
+
+/* 카드 5개가 순서대로(위에서부터) 하나씩 뜨도록 딜레이 부여 */
+.faq_card:nth-child(1) {
+    animation-delay: 0s;
+}
+.faq_card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.faq_card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.faq_card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.faq_card:nth-child(5) {
+    animation-delay: 0.4s;
+}
