@@ -173,49 +173,41 @@
 @keyframes title-fade-up {
     from {
         opacity: 0;
-        transform: translateY(300px);
+        translate: 0 30px;
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        translate: 0 0px;
     }
 }
 
 @keyframes card-pop {
-    0%, 70% {
+    from {
         opacity: 0;
-        transform: scale(0.8);
+        scale: 0.8;
     }
-    100% {
+    to {
         opacity: 1;
-        transform: scale(1);
+        scale: 1;
     }
 }
 
 @supports (animation-timeline: view()) {
     .pricing_title {
-        opacity: 0;
-        animation: title-fade-up 0.1s ease-in-out both;
+        animation: title-fade-up 0.6s ease-in-out both;
         animation-timeline: view();
-        animation-range: entry 0% cover 60%;
+        animation-range: entry 0px entry 150px;
     }
     .pricing_card {
-        opacity: 0;
-        animation: card-pop 0.1s ease-in-out both;
+        animation: card-pop 0.6s ease-in-out both;
         animation-timeline: view();
-        animation-range: entry 0% entry 100%;
+        animation-range: entry 0px entry 200px;
     }
 }
 
-.pricing_card:nth-child(1) {
-    animation-delay: 0s;
-}
-.pricing_card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-.pricing_card:nth-child(3) {
-    animation-delay: 0.2s;
-}
+.pricing_card:nth-child(1) { animation-delay: 0s; }
+.pricing_card:nth-child(2) { animation-delay: 0.1s; }
+.pricing_card:nth-child(3) { animation-delay: 0.12s; }
 
 
 @media (max-width: 768px) {

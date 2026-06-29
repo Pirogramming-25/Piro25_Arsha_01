@@ -2,10 +2,9 @@
     padding: 60px 0;
     text-align: center;
     background-color: #f5f6f8; color: #444444;
-    overflow: clip;
+
     scroll-margin-top: 88px;
 }
-
 
 .faq_title_header {
     font-family: 'Jost', sans-serif;
@@ -47,15 +46,12 @@
     text-align: left;
 }
 
-
 .faq_card {
     background: #fff;
     padding: 20px 25px 18px 25px;
     margin-bottom: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
-    
 }
-
 
 .faq_card_question {
     display: flex;
@@ -113,60 +109,43 @@
 @keyframes faq-title-fade-up {
     from {
         opacity: 0;
-        transform: translateY(300px);
+        translate: 0 30px;
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        translate: 0 0px;
     }
 }
 
 @keyframes faq-card-fade-up {
     from {
         opacity: 0;
-        transform: translateY(300px);
+        translate: 0 30px;
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        translate: 0 0px;
     }
 }
 
 @supports (animation-timeline: view()) {
-
     .faq_title {
-        opacity: 0;
-        animation: faq-title-fade-up 0.1s ease-in-out both;
+        animation: faq-title-fade-up 0.6s ease-in-out both;
         animation-timeline: view();
-        animation-range: entry 0% cover 60%;
+        animation-range: entry 0px entry 150px;
     }
-
     .faq_card {
-        opacity: 0;
-        animation: faq-card-fade-up 0.1s ease-in-out both;
+        animation: faq-card-fade-up 0.6s ease-in-out both;
         animation-timeline: view();
-        animation-range: entry 0% cover 60%;
+        animation-range: entry 0px entry 150px;
     }
 }
 
-
-.faq_card:nth-child(1) {
-    animation-delay: 0s;
-}
-.faq_card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-.faq_card:nth-child(3) {
-    animation-delay: 0.2s;
-}
-.faq_card:nth-child(4) {
-    animation-delay: 0.3s;
-}
-.faq_card:nth-child(5) {
-    animation-delay: 0.4s;
-}
-
-
+.faq_card:nth-child(1) { animation-delay: 0s; }
+.faq_card:nth-child(2) { animation-delay: 0.03s; }
+.faq_card:nth-child(3) { animation-delay: 0.06s; }
+.faq_card:nth-child(4) { animation-delay: 0.09s; }
+.faq_card:nth-child(5) { animation-delay: 0.12s; }
 
 @media (max-width: 768px) {
     .faq_cards {
@@ -176,7 +155,6 @@
         padding: 18px 20px 16px 20px;  
     }
 }
-
 
 @media (max-width: 480px) {
     .faq_title_desc {
