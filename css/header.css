@@ -138,6 +138,9 @@
     left: 0;
     width: 100%;
     z-index: 9998;
+    animation: header-bg-change linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 100px;
 }
 
 .header-container {
@@ -378,5 +381,14 @@
 
     .header-logo a {
         font-size: 26px;
+    }
+}
+
+@keyframes header-bg-change {
+    from {
+        background-color: #37517e;
+    }
+    to {
+        background-color: rgba(40, 58, 90, 0.9);
     }
 }
