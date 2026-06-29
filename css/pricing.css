@@ -1,7 +1,7 @@
 #pricing {
     padding: 60px 0;
     text-align: center;
-    background-color: #ffffff; color: #444444;
+    background-color: #f5f6f8; color: #444444;
     overflow: clip;
     scroll-margin-top: 88px;
 }
@@ -33,7 +33,7 @@
 }
 
 .pricing_title_desc {
-    margin-top: 15px;
+    margin-top: 20px;
     color: #777;
     font-size: 16px;
 }
