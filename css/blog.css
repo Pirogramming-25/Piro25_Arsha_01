@@ -49,6 +49,7 @@
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     background: #fff;
     transition: transform 0.3s;
+    cursor: pointer;
 }
 .blog-item:hover .blog-img img {
   transform: scale(1.1);  
@@ -56,27 +57,27 @@
 
 /* 카드 이미지 + 날짜 뱃지 */
 .blog-img {
-  position: relative;        /* 날짜를 이미지 위에 띄우기 위한 기준 */
+  position: relative;      
   overflow: hidden;
 
 }
 .blog-img img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;         /* 비율 유지하며 꽉 채움 */
-  display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;         /* 비율 유지하며 꽉 채움 */
+    display: block;
     transition: all 0.5s ease;
 
 }
 .post-date {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  background: var(--color-main);
-  color: #fff;
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  font-weight: 600;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: var(--color-main);
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 /* 카드 본문 */
@@ -97,20 +98,28 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #6c757d;
+  color: color-mix(in srgb, var(--color-text), transparent 50%);
   font-size: 0.85rem;
   margin-bottom: 15px;
 }
 .post-meta i {
-  color: var(--color-primary);
+  color: var(--color-main);
 }
 
+hr{
+    border: none;           
+    height: 1px;            
+    background: #ddd;       
+    margin: 20px 0;          
+    opacity: .25;
+
+}
 /* Read More */
 .blog-detail {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: var(--color-primary);
+  color: color-mix(in srgb, var(--color-text), transparent 40%);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
