@@ -63,7 +63,7 @@
     gap: 24px;
 }
 
-/* Card - horizontal layout */
+/* Card - 가로 Layout */
 .team-info {
     display: flex;
     align-items: center;
@@ -129,6 +129,7 @@
     line-height: 1.5;
 }
 
+/* social link */
 .social {
     display: flex;
     gap: 8px;
@@ -150,4 +151,40 @@
 .social_link:hover {
     background: var(--color-main);
     color: var(--color-white);
+}
+
+/* ===== 스크롤 애니메이션 ===== */
+
+/* 아래에서 위로 올라오며 나타나는 효과 */
+@keyframes team-fade-up {
+    from {
+        opacity: 0;
+        translate: 0 40px; /* 40px 아래에서 시작 */
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    /* 섹션 타이틀: 50% 진입 시 등장 */
+    #team .team-text {
+        animation: team-fade-up 1s ease-out both;
+        animation-timeline: view();
+        animation-range: entry 50% entry 80%;
+    }
+
+    .team-info {
+        animation: team-fade-up 1s ease-out both;
+        animation-timeline: view();
+    }
+
+    /* 1행: 왼쪽(1번) 먼저, 오른쪽(2번) 12% 늦게 등장 */
+    .team-info:nth-child(1) { animation-range: entry 50% cover 20%; }
+    .team-info:nth-child(2) { animation-range: entry 62% cover 30%; }
+
+    /* 2행: 1행과 같은 범위지만 페이지 아래에 있어 자연스럽게 나중에 트리거 */
+    .team-info:nth-child(3) { animation-range: entry 50% cover 20%; }
+    .team-info:nth-child(4) { animation-range: entry 62% cover 30%; }
 }

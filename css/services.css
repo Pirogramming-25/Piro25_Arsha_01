@@ -37,7 +37,7 @@
     color: var(--color-dark);
 }
 
-/* title underline + accent bar */
+/* 회색바 + 파란바 */
 .section-title h2::before {
     content: '';
     position: absolute;
@@ -95,7 +95,7 @@
     translate: 0 -6px;
 }
 
-/* Icon */
+/* card Icon */
 .service-card .icon {
     margin-bottom: 20px;
     color: var(--color-main);
@@ -139,33 +139,30 @@
     margin: 0;
 }
 
-/* ===== Scroll Animations ===== */
-@keyframes fade-up {
-    from {
-        opacity: 0;
-        translate: 0 30px;
-    }
-    to {
-        opacity: 1;
-        translate: 0 0px;
-    }
+/* ===== 스크롤 애니메이션 ===== */
+
+/* 아래에서 위로 올라오며 나타나는 효과 */
+@keyframes services-fade-up {
+    from { opacity: 0; transform: translateY(40px); } /* 40px 아래에서 시작 */
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* fallback: no scroll-driven animation */
 @supports (animation-timeline: view()) {
-    .section-title {
-        animation: fade-up 0.6s ease-in-out both;
+    /* 섹션 타이틀: 50% 진입 시 등장 */
+    #services .section-title {
+        animation: services-fade-up 1s ease-out both;
         animation-timeline: view();
-        animation-range: entry 0% entry 35%;
+        animation-range: entry 50% entry 80%;
     }
 
-    .service-card {
-        animation: fade-up 0.6s ease-in-out both;
+    #services .service-card {
+        animation: services-fade-up 1s ease-out both;
         animation-timeline: view();
-        animation-range: entry 15% entry 50%;
     }
 
-    .service-card:nth-child(2) { animation-delay: 0.1s; }
-    .service-card:nth-child(3) { animation-delay: 0.2s; }
-    .service-card:nth-child(4) { animation-delay: 0.3s; }
+    /* 카드 1~4: 10%씩 딜레이를 두어 왼쪽에서 오른쪽 순서로 등장 */
+    #services .service-card:nth-child(1) { animation-range: entry 50% entry 80%; }
+    #services .service-card:nth-child(2) { animation-range: entry 60% entry 90%; }
+    #services .service-card:nth-child(3) { animation-range: entry 70% entry 100%; }
+    #services .service-card:nth-child(4) { animation-range: entry 80% entry 100%; }
 }
