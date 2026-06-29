@@ -1,0 +1,199 @@
+#contact {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.contact-title-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.contact-title-container h2 {
+  color: var(--color-dark);
+  font-family: 'Jost', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.contact-title-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0;
+}
+
+.contact-title-container p {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+
+.contact-content-container {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;       /* 양쪽 박스 높이 맞춤 */
+}
+
+.contact-info,
+.contact-form {
+  background: #fff;
+  border-top: 3px solid var(--color-main);    /* 위 파란선 */
+  border-bottom: 3px solid var(--color-main);  /* 아래 파란선 */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+.contact-info { flex: 1; }   
+.contact-form { flex: 1.5; }    
+
+
+.contact-info-addr,
+.contact-info-call,
+.contact-info-email {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  padding-left: 60px;          
+  position: relative;
+}
+
+.contact-info-addr i,
+.contact-info-call i,
+.contact-info-email i {
+  position: absolute;
+  left: 0;
+  top: 25%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e7f5fb;       
+  color: var(--color-main);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.contact-info i:hover{
+    color: white;
+    background-color: #209dd8;
+}
+.contact-info h3 {
+    font-family: 'Jost', sans-serif;
+    color: var(--color-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.contact-info p {
+    margin-top: 5px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* 지도 */
+.contact-info iframe {
+  width: 100%;
+  height: 205px;
+  border: 0;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* ===== 오른쪽: 폼 ===== */
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 이름 / 이메일 — 한 줄에 2개 */
+.contact-form .name,
+.contact-form .email {
+  flex: 1 1 calc(50% - 10px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 제목 / 메시지 — 한 줄 전체 */
+.contact-form .subject,
+.contact-form .msg {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  color: var(--color-text);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 15px;
+  border: 1px solid color-mix(in srgb, var(--color-text), transparent 80%);  
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  resize: vertical;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-main);
+}
+.contact-form textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+/* Send 버튼 — 오른쪽 정렬 */
+.send-msg {
+    height: 40px;
+    margin-top: auto;      /* 위 공간 다 밀어내고 바닥으로 */
+    margin-left: auto; margin-right: auto;
+    background: var(--color-main);
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.send-msg:hover {
+  background: color-mix(in srgb, var(--color-main), transparent 25%); 
+}
+
+@media (max-width: 1400px) {
+  #contact {
+    max-width: 1000px;   /* 1140 → 1000 (한 단계 줄임) */
+  }
+}
+
+/* 1200 이하 — 한 번 더 작아짐 */
+@media (max-width: 1200px) {
+  #contact {
+    max-width: 880px;    /* 1000 → 880 */
+  }
+}
+
+/* 900 이하 — 세로로 쌓기 */
+@media (max-width: 990px) {
+  #contact {
+    max-width: 700px;
+  }
+  .contact-content-container {
+    flex-direction: column;   /* 좌우 → 위아래 */
+  }
+}
+/* 900 이하 — 세로로 쌓기 */
+@media (max-width: 768px) {
+  #contact {
+    max-width: 520px;
+  }
+  .contact-content-container {
+    flex-direction: column;   /* 좌우 → 위아래 */
+  }
+}
