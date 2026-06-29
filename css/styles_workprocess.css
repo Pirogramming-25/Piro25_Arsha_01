@@ -1,0 +1,143 @@
+/* ===== Work Process Section ===== */
+
+#workProcess {
+    color: #444444;
+    background-color: #ffffff;
+    padding: 60px 0;
+    scroll-margin-top: 88px;
+    overflow: clip;
+}
+
+/* 3-column grid */
+.wp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Card */
+.wp-card {
+    border: 1px solid #e8ecef;
+    border-radius: 8px;
+    overflow: visible;
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wp-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Image area */
+.wp-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    background: #f0f4f8;
+    height: 260px;
+}
+
+.wp-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.wp-card:hover .wp-img img {
+    transform: scale(1.08);
+}
+
+.wp-step {
+    position: absolute;
+    left: 40px;
+    top: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #47b2e4;
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+/* Text content */
+.wp-body {
+    position: relative;
+    padding: 40px 30px 30px;
+}
+
+.wp-body h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #37517e;
+    margin: 0 0 15px;
+}
+
+.wp-body > p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(68, 68, 68, 0.8);
+    margin: 0 0 25px 0;
+}
+
+/* Checklist */
+.wp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wp-list li {
+    font-size: 14px;
+    color: #444444d9;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+/* ===== Scroll Animation ===== */
+@keyframes wp-fade-up {
+    from {
+        opacity: 0;
+        translate: 0 30px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0px;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .wp-card {
+        animation: wp-fade-up 0.6s ease-in-out both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 50%;
+    }
+}
+
+.wp-list li::before {
+    content: '✓';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    border: 1.5px solid #47b2e4;
+    color: #47b2e4;
+    font-size: 11px;
+    font-weight: 700;
+}
