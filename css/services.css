@@ -19,6 +19,11 @@
     padding: 0 15px;
 }
 
+#services .container {
+    max-width: 1320px;
+    padding: 0 30px;
+}
+
 /* Section Title */
 .section-title {
     text-align: center;
@@ -101,9 +106,10 @@
     color: var(--color-main);
 }
 
-.service-card .icon svg {
-    width: 40px;
-    height: 40px;
+.service-card .icon svg,
+.service-card .icon img {
+    width: 36px;
+    height: 36px;
 }
 
 .service-card h4 {
@@ -125,9 +131,9 @@
 .stretched-link::after {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -15px;
     bottom: 0;
-    left: 0;
+    left: -15px;
     z-index: 1;
     content: "";
 }
@@ -137,6 +143,81 @@
     line-height: 1.7;
     color: #6c757d;
     margin: 0;
+}
+
+/* ===== 반응형 ===== */
+
+/* xl 이하 (1199px): 4열 → 2열 */
+@media (max-width: 1199px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* lg 이하 (991px): 패딩 축소 */
+@media (max-width: 991px) {
+    #services {
+        padding: 50px 0;
+    }
+
+    .services-grid {
+        gap: 16px;
+    }
+}
+
+/* md 이하 (767px): 2열 → 1열 + 타이틀·카드 크기 축소 */
+@media (max-width: 767px) {
+    #services {
+        padding: 40px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .section-title {
+        padding-bottom: 30px;
+    }
+
+    .service-card {
+        padding: 22px;
+    }
+}
+
+/* sm 이하 (575px): 추가 축소 */
+@media (max-width: 575px) {
+    .section-title h2 {
+        font-size: 22px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+}
+
+/* 소형 모바일 (430px 이하) */
+@media (max-width: 430px) {
+    .section-title h2 {
+        font-size: 20px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    .service-card {
+        padding: 16px;
+    }
+
+    .service-card h4 {
+        font-size: 18px;
+    }
 }
 
 /* ===== 스크롤 애니메이션 ===== */

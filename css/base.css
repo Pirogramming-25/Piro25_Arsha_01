@@ -16,3 +16,13 @@
   border-radius: 50px;
   border: none
 }
+
+.post-meta i,
+.blog-detail i,
+.contact-info-addr i,
+.contact-info-call i,
+.contact-info-email i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

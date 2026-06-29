@@ -92,7 +92,7 @@
 @media (max-width: 1400px) {
   .subs-container {
     height: 360px;
-    margin: 50px 30px;
+    margin: 50px auto;
   }
   .subs-img { margin-right: 40px; }
   .subs-img img { height: 90%; }
@@ -118,21 +118,23 @@
     align-items: center;
     flex-direction: column;
     height: auto;
-    margin: 30px 70px;
+    margin: 50px auto;
   }
     .subs-content {
     margin-top: 0;             
-    padding: 0 30px;
+    padding: 0 10px;
     align-items: center;       
     text-align: center;        
   }
 
   .subs-text{
-    width: 500px;
+    width: 100%;          
+    max-width: 500px;    
   }
 
     .subs-email{
-    width:900px;
+    width:100%;
+    max-width: 400px;
   }
 
     .subs-img {
@@ -147,3 +149,33 @@
   }
 }
 
+/* 스크롤 등장 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.subs-container {
+  animation: fadeIn 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+.subs-img {
+  animation: fadeUp 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 35%;
+}
+.subs-content {
+  animation: fadeUp 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 45%;
+}
+.subs-email {
+  animation: fadeUp 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 35% cover 55%;
+}
