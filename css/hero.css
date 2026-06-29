@@ -1,0 +1,93 @@
+#hero {
+    width: 100%;
+    background-color: #37517e;
+    padding: 170px 0 70px;
+}
+
+.hero-container {
+    width: 86%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    width:48%;
+}
+
+.hero-text h1 {
+    color:#ffffff;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.hero-start-btn {
+    background-color: #47b2e4;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hero-start-btn:hover {
+    background-color: #209dd8;
+}
+
+.hero-video-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.hero-video-btn i {
+    font-size: 32px;
+    color: #ffffff;
+}
+
+.hero-video-btn:hover i {
+    color: #47b2e4;
+}
+
+.hero-image {
+    width: 50%;
+}
+
+.hero-image img {
+    width: 100%;
+    display: block;
+
+    animation: hero-move 3s ease-in-out infinite alternate;
+}
+
+@keyframes hero-move {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-18px);
+    }
+}
