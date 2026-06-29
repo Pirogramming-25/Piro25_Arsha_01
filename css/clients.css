@@ -52,3 +52,33 @@
     97.5% { transform: translateX(-43.75%); animation-timing-function: ease-in-out; }
     100%  { transform: translateX(-50%); }
 }
+
+@media (max-width: 992px) {
+    .clients-slider {
+        padding: 0 30px;
+    }
+
+    .clients-track img {
+        width: 100px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 576px) {
+    #clients {
+        padding: 18px 0;
+    }
+
+    .clients-slider {
+        padding: 0 20px;
+    }
+
+    .clients-track {
+        gap: 55px;
+    }
+
+    .clients-track img {
+        width: 85px;
+        height: 36px;
+    }
+}
