@@ -6,6 +6,7 @@
 }
 
 .footer {
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
   background-color: var(--background-color, #ffffff);
   color: var(--default-color, #444444);
