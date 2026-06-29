@@ -340,3 +340,104 @@
 .about-btn:hover {
     text-decoration: none;
 }
+
+/* ===== 스크롤 애니메이션 ===== */
+
+@keyframes about-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .about-title h2 {
+        animation: about-fade-up 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 30% entry 60%;
+    }
+
+    .about-content {
+        animation: about-fade-up 1.5s ease both;
+        animation-timeline: view();
+        animation-range: entry 85% cover 20%;
+    }
+
+    /* h3, p, img 동시 등장 */
+    .about-why-text h3,
+    .about-why-text > p,
+    .about-why-image img {
+        animation: about-fade-up 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 30% entry 60%;
+    }
+
+    /* faq-item 1, 2, 3 미세한 차이로 등장 */
+    .about-faq-item:nth-child(1) {
+        animation: about-fade-up 1.3s ease both;
+        animation-timeline: view();
+        animation-range: entry 76% cover 25%;
+    }
+
+    .about-faq-item:nth-child(2) {
+        animation: about-fade-up 1.3s ease both;
+        animation-timeline: view();
+        animation-range: entry 78% cover 25%;
+    }
+
+    .about-faq-item:nth-child(3) {
+        animation: about-fade-up 1.3s ease both;
+        animation-timeline: view();
+        animation-range: entry 80% cover 25%;
+    }
+}
+
+/* ===== about-skills 애니메이션 ===== */
+
+@keyframes about-skills-up {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fill-html       { from { width: 0; } to { width: 100%; } }
+@keyframes fill-css        { from { width: 0; } to { width: 90%; } }
+@keyframes fill-javascript { from { width: 0; } to { width: 75%; } }
+@keyframes fill-photoshop  { from { width: 0; } to { width: 55%; } }
+
+@supports (animation-timeline: view()) {
+    .about-skills-container {
+        view-timeline-name: --skills;
+        view-timeline-axis: block;
+        animation: about-skills-up 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 70%;
+    }
+
+    .skill-fill.html {
+        animation: fill-html 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 10% cover 60%;
+    }
+
+    .skill-fill.css {
+        animation: fill-css 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 15% cover 65%;
+    }
+
+    .skill-fill.javascript {
+        animation: fill-javascript 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 20% cover 70%;
+    }
+
+    .skill-fill.photoshop {
+        animation: fill-photoshop 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 25% cover 75%;
+    }
+}
