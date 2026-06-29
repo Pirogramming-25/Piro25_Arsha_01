@@ -107,6 +107,82 @@
     gap: 10px;
 }
 
+/* ===== 반응형 ===== */
+
+/* lg 이하 (991px): 3열 → 1열 */
+@media (max-width: 991px) {
+    #workProcess {
+        padding: 50px 0;
+    }
+
+    .wp-grid {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .wp-img {
+        height: 300px;
+    }
+}
+
+/* md 이하 (767px): 패딩·본문 축소 */
+@media (max-width: 767px) {
+    #workProcess {
+        padding: 40px 0;
+    }
+
+    .wp-grid {
+        max-width: 100%;
+    }
+
+    .wp-body {
+        padding: 36px 24px 24px;
+    }
+
+    .wp-body h3 {
+        font-size: 20px;
+    }
+
+    .wp-img {
+        height: 240px;
+    }
+}
+
+/* sm 이하 (575px): 이미지·번호 추가 축소 */
+@media (max-width: 575px) {
+    .wp-body {
+        padding: 36px 16px 16px;
+    }
+
+    .wp-img {
+        height: 200px;
+    }
+
+    .wp-step {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        left: 20px;
+        top: -25px;
+    }
+}
+
+/* 소형 모바일 (430px 이하) */
+@media (max-width: 430px) {
+    .wp-body {
+        padding: 32px 14px 14px;
+    }
+
+    .wp-body h3 {
+        font-size: 18px;
+    }
+
+    .wp-img {
+        height: 180px;
+    }
+}
+
 /* ===== 스크롤 애니메이션 ===== */
 
 /* 아래에서 위로 올라오며 나타나는 효과 */

@@ -139,6 +139,74 @@
     margin: 0;
 }
 
+/* ===== 반응형 ===== */
+
+/* lg 이하 (991px): 4열 → 2열 */
+@media (max-width: 991px) {
+    #services {
+        padding: 50px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+/* md 이하 (767px): 2열 → 1열 + 타이틀·카드 크기 축소 */
+@media (max-width: 767px) {
+    #services {
+        padding: 40px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .section-title {
+        padding-bottom: 30px;
+    }
+
+    .service-card {
+        padding: 22px;
+    }
+}
+
+/* sm 이하 (575px): 추가 축소 */
+@media (max-width: 575px) {
+    .section-title h2 {
+        font-size: 22px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+}
+
+/* 소형 모바일 (430px 이하) */
+@media (max-width: 430px) {
+    .section-title h2 {
+        font-size: 20px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    .service-card {
+        padding: 16px;
+    }
+
+    .service-card h4 {
+        font-size: 18px;
+    }
+}
+
 /* ===== 스크롤 애니메이션 ===== */
 
 /* 아래에서 위로 올라오며 나타나는 효과 */
