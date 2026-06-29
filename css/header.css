@@ -1,0 +1,189 @@
+#preview-bar {
+    height: 28px;
+    background-color: #023b6d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#preview-bar * {
+    box-sizing: border-box;
+}
+
+.preview-left,
+.preview-center,
+.preview-right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.preview-left {
+    gap: 26px;
+    padding-left: 12px;
+}
+
+.preview-logo {
+    display: flex;
+    align-items: center;
+}
+
+.preview-logo img {
+    height: 25px;
+    display: block;
+}
+
+.preview-device-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.preview-device-icons i {
+    font-size: 20px;
+    color: #9bb7ce;
+}
+
+.preview-device-icons a:first-child i {
+    color:#ffffff;
+}
+
+.preview-device-icons a:nth-child(2) i,
+.preview-device-icons a:nth-child(3) i {
+    color: #7f95ab;
+}
+
+.preview-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    display:flex;
+    align-items: center;
+    gap: 16px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.preview-center i {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.preview-right {
+    gap: 22px;
+}
+
+.preview-right > i {
+    color:#9bb7ce;
+    font-size: 22px;
+}
+
+.preview-download {
+    height: 100%;
+    background-color: #00a6eb;
+    color:#fff;
+    text-decoration: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 18px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.preview-download:hover {
+    background-color: #00b5f7;
+    transition: background-color 0.3s ease;
+}
+
+.preview-device-icons a,
+.preview-center a,
+.preview-right>a:first-child {
+    color:#9bb7ce;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.preview-device-icons a:hover i,
+.preview-center a:hover i,
+.preview-right>a:hover i {
+    color: white;
+    transition: color 0.3s;
+}
+
+#header {
+    background-color: rgba(40, 58, 90, 0.9)
+    padding: 32px 0;
+    position:fixed;
+    top: 34px;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+}
+
+.header-container {
+    width: 86%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    margin: 0;
+}
+
+.header-logo a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-nav a:not(.header-btn):hover,
+.header-nav .active {
+    color: #47b2e4;
+}
+
+.header-btn {
+    background-color: #47b2e4;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: background-color 2s ease-in-out;
+}
+
+.header-btn:hover {
+    background-color: #209dd8;
+    color: white;
+}
