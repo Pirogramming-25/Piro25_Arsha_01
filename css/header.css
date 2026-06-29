@@ -124,7 +124,7 @@
 }
 
 #header {
-    background-color: rgba(40, 58, 90, 0.9)
+    background-color: rgba(40, 58, 90, 0.9);
     padding: 32px 0;
     position:fixed;
     top: 34px;
