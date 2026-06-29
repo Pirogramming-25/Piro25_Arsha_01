@@ -22,7 +22,7 @@
 }
 
 .clients-track img {
-    width: 90px;
+    width: 80px;
     height: 45px;
     object-fit: contain;
     
@@ -64,6 +64,28 @@
     }
 }
 
+@media (max-width: 767px) {
+    #clients {
+        width: 100%;
+        overflow:hidden;
+    }
+    .clients-slider {
+        width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .clients-track {
+        gap: 40px;
+        width: max-content;
+        max-width: none;
+    }
+
+    .clients-track img {
+        width: 70px;
+        flex-shrink: 0;
+    }
+}
 @media (max-width: 576px) {
     #clients {
         padding: 18px 0;
@@ -80,5 +102,25 @@
     .clients-track img {
         width: 85px;
         height: 36px;
+    }
+}
+
+@media (max-width: 430px) {
+    #clients {
+        padding: 16px 0;
+    }
+
+    .clients-slider {
+        padding: 0 10px;
+        overflow: hidden;
+    }
+
+    .clients-track {
+        gap: 28px;
+    }
+
+    .clients-track img {
+        width: 58px;
+        height: auto;
     }
 }

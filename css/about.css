@@ -376,6 +376,14 @@
     }
 }
 
+@media (max-width: 767px) {
+    .about-content,
+    .about-why-container,
+    .about-skills-container {
+        gap: 30px;
+    }
+}
+
 @media (max-width: 576px) {
     .about-us,
     .about-why,
@@ -427,5 +435,20 @@
     .about-why-image img,
     .about-skills-img img {
         width: 95%;
+    }
+}
+
+@media (max-width: 430px) {
+    .about-title h2 {
+        font-size: 24px;
+    }
+
+    .about-faq-item {
+        padding: 14px;
+    }
+
+    .about-why-image img,
+    .about-skills-img img {
+        width: 100%;
     }
 }
