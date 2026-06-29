@@ -153,6 +153,87 @@
     color: var(--color-white);
 }
 
+/* ===== 반응형 ===== */
+
+/* lg 이하 (991px): 2열 → 1열
+   768-991px 구간에서 카드 내부(이미지+텍스트)가 좁아지는 문제 방지 */
+@media (max-width: 991px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 640px;
+        margin: 0 auto;
+    }
+}
+
+/* md 이하 (767px): max-width 해제, 카드 간격 축소 */
+@media (max-width: 767px) {
+    #team {
+        padding: 50px 0;
+    }
+
+    .team-grid {
+        max-width: 100%;
+        gap: 18px;
+    }
+
+    .team-info {
+        gap: 18px;
+    }
+}
+
+/* sm 이하 (575px): 카드 내부 세로 정렬 전환 */
+@media (max-width: 575px) {
+    #team {
+        padding: 40px 0;
+    }
+
+    .team-info {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 14px;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .team-info-body span::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social {
+        justify-content: center;
+    }
+}
+
+/* 소형 모바일 (430px 이하) */
+@media (max-width: 430px) {
+    .team-info {
+        padding: 16px;
+        gap: 10px;
+    }
+
+    .profile img {
+        width: 88px;
+        height: 88px;
+    }
+
+    .team-info-body h4 {
+        font-size: 16px;
+    }
+
+    .team-info-body span {
+        font-size: 13px;
+    }
+
+    .team-info-body p {
+        font-size: 13px;
+    }
+}
+
 /* ===== 스크롤 애니메이션 ===== */
 
 /* 아래에서 위로 올라오며 나타나는 효과 */
