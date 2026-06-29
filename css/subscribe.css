@@ -118,21 +118,23 @@
     align-items: center;
     flex-direction: column;
     height: auto;
-    margin: 30px 70px;
+    margin: 30px auto;
   }
     .subs-content {
     margin-top: 0;             
-    padding: 0 30px;
+    padding: 0 10px;
     align-items: center;       
     text-align: center;        
   }
 
   .subs-text{
-    width: 500px;
+    width: 100%;          
+    max-width: 500px;    
   }
 
     .subs-email{
-    width:900px;
+    width:100%;
+    max-width: 400px;
   }
 
     .subs-img {
