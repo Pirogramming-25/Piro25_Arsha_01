@@ -199,3 +199,35 @@
     flex-direction: column;   /* 좌우 → 위아래 */
   }
 }
+
+/* 스크롤 등장 애니메이션 */
+@keyframes popUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.contact-info {
+  animation: popUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+/* 제목 — 먼저 */
+.contact-title-container {
+  animation: fadeUp 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
+}
+
+/* 왼쪽 정보 박스 — 그다음 */
+.contact-info {
+  animation: fadeUp 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 40%;
+}
+
+/* 오른쪽 폼 박스 — 마지막 */
+.contact-form {
+  animation: fadeUp 0.8s ease both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 50%;
+}
