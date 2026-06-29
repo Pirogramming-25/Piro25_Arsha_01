@@ -7,20 +7,20 @@
     scroll-margin-top: 88px;
     position: relative;
     background-image: url('../images/city.webp');
+    background-attachment: fixed;
     background-size: cover;
-    background-attachment: scroll;
     background-position: center;
     width: 100vw;
     margin-left: calc(50% - 50vw);
     overflow: clip;
 }
 
-/* Dark blue overlay */
+/* 어두운 오버레이 */
 #callToAction::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(55, 81, 126, 0.65);
+    background: color-mix(in srgb, var(--color-dark), transparent 35%);
     z-index: 2;
 }
 
@@ -42,12 +42,12 @@
     font-family: 'Jost', sans-serif;
     font-size: 28px;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-white);
     margin: 0 0 8px 0;
 }
 
 .cta-text p {
-    color: #ffffff;
+    color: var(--color-white);
     font-size: 16px;
     line-height: 1.75;
     margin: 0 0 16px 0;
@@ -62,9 +62,9 @@
 .cta-btn {
     display: inline-block;
     padding: 12px 40px;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--color-white);
     border-radius: 50px;
-    color: #ffffff;
+    color: var(--color-white);
     font-family: 'Jost', sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -76,28 +76,29 @@
 }
 
 .cta-btn:hover {
-    background: #47b2e4;
-    border-color: #47b2e4;
+    background: var(--color-main);
+    border-color: var(--color-main);
 }
 
-/* ===== Scroll Animation ===== */
+/* ===== 스크롤 애니메이션 ===== */
+
+/* 작은 크기에서 원래 크기로 커지며 나타나는 효과 */
 @keyframes cta-zoom-in {
     from {
         opacity: 0;
-        scale: 0.75;
+        scale: 0.82; /* 시작 크기 (82%) */
     }
     to {
         opacity: 1;
-        scale: 1;
+        scale: 1;    /* 원래 크기 (100%) */
     }
 }
 
+/* view 70% 진입 시 애니메이션 시작, cover 30%까지 천천히 확대 */
 @supports (animation-timeline: view()) {
-    #callToAction .cta-text h3,
-    #callToAction .cta-text p,
-    #callToAction .cta-btn {
-        animation: cta-zoom-in 0.6s ease-in-out both;
+    #callToAction .cta-content {
+        animation: cta-zoom-in 1s ease-out both;
         animation-timeline: view();
-        animation-range: entry 5% entry 40%;
+        animation-range: entry 70% cover 30%;
     }
 }

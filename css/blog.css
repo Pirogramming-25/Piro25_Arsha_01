@@ -1,0 +1,181 @@
+#blog {
+  background-color: rgb(245, 246, 248);    /* 화면 가로 꽉 차게 배경 */
+  padding: 30px 0;
+}
+
+/* 안쪽 — 내용 담당 (가운데 정렬) */
+.blog-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 섹션 제목 */
+.blog-title-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.blog-title-container h2 {
+  color: var(--color-dark);
+  font-family: 'Jost', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.blog-title-container p {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.blog-title-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0;
+}
+
+/* 카드 3개 가로 배치 */
+.blog-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* 카드 하나 */
+.blog-item {
+    flex: 0 0 350px;   
+    overflow: hidden;          /* 이미지 모서리 둥글게 잘림 */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.blog-item:hover .blog-img img {
+  transform: scale(1.1);  
+}
+
+/* 카드 이미지 + 날짜 뱃지 */
+.blog-img {
+  position: relative;      
+  overflow: hidden;
+
+}
+.blog-img img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;         /* 비율 유지하며 꽉 채움 */
+    display: block;
+    transition: all 0.5s ease;
+
+}
+.post-date {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: var(--color-main);
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* 카드 본문 */
+.blog-content {
+  padding: 20px;
+}
+.post-title {
+  color: var(--color-dark);
+  font-family: 'Jost', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* 작성자 / 카테고리 줄 */
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: color-mix(in srgb, var(--color-text), transparent 50%);
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+.post-meta i {
+  color: var(--color-main);
+}
+
+hr{
+    border: none;           
+    height: 1px;            
+    background: #ddd;       
+    margin: 20px 0;          
+    opacity: .25;
+
+}
+/* Read More */
+.blog-detail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: color-mix(in srgb, var(--color-text), transparent 40%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.blog-detail i {
+  transition: transform 0.3s;
+}
+
+
+.blog-item:hover .post-title, .blog-item:hover .blog-detail{
+    color: var(--color-main);
+    transition: all 0.3s ease-in-out;
+}
+
+
+@media (max-width: 1400px) {
+    .blog-items {
+        flex: 0 0 300px;     
+    }
+    .blog-img img {
+        height: 200px;         
+    }
+    .post-title {
+        font-size: 1.05rem;     
+    }
+    .blog-content {
+        padding: 16px;        
+    }
+    .blog-items {
+        gap: 24px;             
+    }
+
+}
+@media (max-width: 1200px) {
+    .blog-items{
+        justify-content: flex-start;
+        max-width: 850px;
+        margin: 0 auto; 
+    }
+    .blog-item {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 900px) {
+    .blog-items{
+        padding: 0 80px;
+        justify-content: flex-start;
+    }
+    .blog-item {
+        flex: 0 1 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+  .blog-items {
+        flex-direction: column;  
+  }
+}

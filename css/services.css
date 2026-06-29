@@ -1,11 +1,11 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Jost:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Jost:wght@400;600;700&display=swap');
 
 /* ===== Services Section ===== */
 
 #services {
     padding: 60px 0;
     background-color: #f5f6f8;
-    color: #444444;
+    color: var(--color-text);
     font-family: "Open Sans", system-ui, sans-serif;
     scroll-margin-top: 88px;
     overflow: clip;
@@ -34,17 +34,17 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
     position: relative;
-    color: #37517e;
+    color: var(--color-dark);
 }
 
-/* title underline + accent bar */
+/* 회색바 + 파란바 */
 .section-title h2::before {
     content: '';
     position: absolute;
     display: block;
     width: 160px;
     height: 1px;
-    background: rgba(68, 68, 68, 0.4);
+    background: color-mix(in srgb, var(--color-text), transparent 60%);
     bottom: 1px;
     left: 0;
     right: 0;
@@ -57,7 +57,7 @@
     display: block;
     width: 60px;
     height: 3px;
-    background: #47b2e4;
+    background: var(--color-main);
     bottom: 0;
     left: 0;
     right: 0;
@@ -65,7 +65,7 @@
 }
 
 .section-title p {
-    color: #444444;
+    color: var(--color-text);
     font-size: 16px;
     margin: 0;
 }
@@ -74,30 +74,31 @@
 .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
 }
 
 /* Service Card */
 .service-card {
-    background: #fff;
+    background: var(--color-white);
     padding: 30px 30px 30px 30px;
     border-radius: 4px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
     text-align: left;
     border-top: 3px solid transparent;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+    translate: 0 0;
+    transition: translate 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+    translate: 0 -6px;
 }
 
-/* Icon */
+/* card Icon */
 .service-card .icon {
     margin-bottom: 20px;
-    color: #47b2e4;
+    color: var(--color-main);
 }
 
 .service-card .icon svg {
@@ -112,13 +113,13 @@
 }
 
 .service-card h4 a {
-    color: #37517e;
+    color: var(--color-dark);
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .service-card:hover h4 a {
-    color: #47b2e4;
+    color: var(--color-main);
 }
 
 .stretched-link::after {
@@ -138,33 +139,30 @@
     margin: 0;
 }
 
-/* ===== Scroll Animations ===== */
-@keyframes fade-up {
-    from {
-        opacity: 0;
-        translate: 0 30px;
-    }
-    to {
-        opacity: 1;
-        translate: 0 0px;
-    }
+/* ===== 스크롤 애니메이션 ===== */
+
+/* 아래에서 위로 올라오며 나타나는 효과 */
+@keyframes services-fade-up {
+    from { opacity: 0; transform: translateY(40px); } /* 40px 아래에서 시작 */
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-/* fallback: no scroll-driven animation */
 @supports (animation-timeline: view()) {
-    .section-title {
-        animation: fade-up 0.6s ease-in-out both;
+    /* 섹션 타이틀: 50% 진입 시 등장 */
+    #services .section-title {
+        animation: services-fade-up 1s ease-out both;
         animation-timeline: view();
-        animation-range: entry 0% entry 35%;
+        animation-range: entry 50% entry 80%;
     }
 
-    .service-card {
-        animation: fade-up 0.6s ease-in-out both;
+    #services .service-card {
+        animation: services-fade-up 1s ease-out both;
         animation-timeline: view();
-        animation-range: entry 15% entry 50%;
     }
 
-    .service-card:nth-child(2) { animation-delay: 0.1s; }
-    .service-card:nth-child(3) { animation-delay: 0.2s; }
-    .service-card:nth-child(4) { animation-delay: 0.3s; }
+    /* 카드 1~4: 10%씩 딜레이를 두어 왼쪽에서 오른쪽 순서로 등장 */
+    #services .service-card:nth-child(1) { animation-range: entry 50% entry 80%; }
+    #services .service-card:nth-child(2) { animation-range: entry 60% entry 90%; }
+    #services .service-card:nth-child(3) { animation-range: entry 70% entry 100%; }
+    #services .service-card:nth-child(4) { animation-range: entry 80% entry 100%; }
 }
