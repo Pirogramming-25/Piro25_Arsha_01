@@ -1,0 +1,44 @@
+#clients {
+    background-color: #f3f5fa;
+    padding: 24px 0;
+    overflow: hidden;
+}
+
+.clients-slider {
+    width:100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.clients-track {
+    display: flex;
+    align-items: center;
+    gap: 120px;
+    width: max-content;
+    animation: clients-slide 20s steps(8) infinite;
+    animation-delay: 5s;
+    animation-fill-mode:backwards;
+}
+
+.clients-track img {
+    width: 90px;
+    height: 45px;
+    object-fit: contain;
+    
+    transition: transform 0.3s ease;
+}
+
+.clients-track img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes clients-slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
