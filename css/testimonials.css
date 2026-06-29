@@ -38,20 +38,29 @@
     font-size: 16px;
 }
 
-
+/* 카드들이 보이는 영역 - 넘치는 부분은 잘라서 숨김 */
 .testimonials_cards {
     max-width: 700px;
     margin: 50px auto 0;
-    position: relative;      
-    min-height: 320px;        
+    overflow: hidden;
+    position: relative;
+}
+
+
+.testimonials_track {
+    display: flex;
+    align-items: center;
+    width: 1000%;    /* max-content → 1000%로 복구! */
+    animation: testimonials-slide 20s steps(5) infinite;
+    animation-delay: 5s;
+    animation-fill-mode: backwards;
 }
 
 .testimonials_card {
-    position: absolute;      
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;       
+    width: 10%;
+    flex-shrink: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .testimonials_card_img {
@@ -75,7 +84,6 @@
 
 .testimonials_card_stars {
     color: #ffc107;
-
 }
 
 .quote_icon_left,
@@ -95,28 +103,28 @@
     margin-top: 20px;
 }
 
-
 @keyframes testimonials-slide {
-    0%, 16% {       
-        opacity: 1;
-    }
-    20%, 100% {       
-        opacity: 0;
-    }
+    0%    { transform: translateX(0%); }
+    10%   { transform: translateX(0%);    animation-timing-function: ease-in-out; }
+    12.5% { transform: translateX(-10%); }
+    22.5% { transform: translateX(-10%);  animation-timing-function: ease-in-out; }
+    25%   { transform: translateX(-20%); }
+    35%   { transform: translateX(-20%);  animation-timing-function: ease-in-out; }
+    37.5% { transform: translateX(-30%); }
+    47.5% { transform: translateX(-30%);  animation-timing-function: ease-in-out; }
+    50%   { transform: translateX(-40%); }
+    60%   { transform: translateX(-40%);  animation-timing-function: ease-in-out; }
+    62.5% { transform: translateX(-50%); }
+    72.5% { transform: translateX(-50%);  animation-timing-function: ease-in-out; }
+    75%   { transform: translateX(-60%); }
+    85%   { transform: translateX(-60%);  animation-timing-function: ease-in-out; }
+    87.5% { transform: translateX(-70%); }
+    97.5% { transform: translateX(-70%);  animation-timing-function: ease-in-out; }
+    100%  { transform: translateX(-80%); }
 }
-
-.testimonials_card {
-    animation: testimonials-slide 25s infinite;  
-}
-
-.testimonials_card:nth-child(1) { animation-delay: 0s; }
-.testimonials_card:nth-child(2) { animation-delay: 5s; }
-.testimonials_card:nth-child(3) { animation-delay: 10s; }
-.testimonials_card:nth-child(4) { animation-delay: 15s; }
-.testimonials_card:nth-child(5) { animation-delay: 20s; }
 
 .testimonials_dots {
-    margin: 20px;  
+    margin: 20px;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -129,18 +137,6 @@
     background: #ccc;
 }
 
-@keyframes dot-active {
-    0%, 16% { background: #47b2e4; }
-    20%, 100% { background: #ccc; }
-}
-.dot {
-    animation: dot-active 25s infinite;
-}
-.dot:nth-child(1) { animation-delay: 0s; }
-.dot:nth-child(2) { animation-delay: 5s; }
-.dot:nth-child(3) { animation-delay: 10s; }
-.dot:nth-child(4) { animation-delay: 15s; }
-.dot:nth-child(5) { animation-delay: 20s; }
 
 @keyframes testimonials-title-fade-up {
     from {
@@ -162,28 +158,7 @@
     }
 }
 
-@keyframes testimonials-cards-fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(300px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@supports (animation-timeline: view()) {
-    .testimonials_cards {
-        opacity: 0;
-        animation: testimonials-cards-fade-up 0.1s ease-in-out both;
-        animation-timeline: view();
-        animation-range: entry 0% cover 60%;
-    }
-}
-
 @media (max-width: 768px) {
-
     .testimonials_cards {
         max-width: 95%;
         min-height: 420px;
@@ -191,9 +166,7 @@
 }
 
 @media (max-width: 480px) {
-
     .testimonials_cards {
-        min-height: 480px; 
+        min-height: 480px;
     }
-
 }
