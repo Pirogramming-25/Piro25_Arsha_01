@@ -1,5 +1,10 @@
 
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --color-main: #47b2e4;   /* 메인 하늘색 (링크, 버튼, 강조) */
   --color-dark:    #37517e;   /* 진한 남색 (제목, 헤더 텍스트) */
