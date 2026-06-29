@@ -147,7 +147,7 @@
 
 /* ===== 반응형 ===== */
 
-/* xl 이하 (1199px): 4열 → 2열 (1024px Nest Hub 포함) */
+/* xl 이하 (1199px): 4열 → 2열 */
 @media (max-width: 1199px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
