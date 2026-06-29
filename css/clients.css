@@ -33,6 +33,10 @@
     transform: scale(1.1);
 }
 
+.clients-slider:active .clients-track {
+    animation-duration: 6s;
+}
+
 @keyframes clients-slide {
     0%    { transform: translateX(0%); }
     10%   { transform: translateX(0%);      animation-timing-function: ease-in-out; }
