@@ -38,7 +38,6 @@
     font-size: 16px;
 }
 
-/* 카드들이 보이는 영역 - 넘치는 부분은 잘라서 숨김 */
 .testimonials_cards {
     max-width: 700px;
     margin: 50px auto 0;
@@ -46,11 +45,10 @@
     position: relative;
 }
 
-
 .testimonials_track {
     display: flex;
     align-items: center;
-    width: 1000%;    /* max-content → 1000%로 복구! */
+    width: 1000%;
     animation: testimonials-slide 20s steps(5) infinite;
     animation-delay: 5s;
     animation-fill-mode: backwards;
@@ -137,11 +135,10 @@
     background: #ccc;
 }
 
-
 @keyframes testimonials-title-fade-up {
     from {
         opacity: 0;
-        transform: translateY(300px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -152,9 +149,9 @@
 @supports (animation-timeline: view()) {
     .testimonials_title {
         opacity: 0;
-        animation: testimonials-title-fade-up 0.1s ease-in-out both;
+        animation: testimonials-title-fade-up 0.3s ease-in-out both;
         animation-timeline: view();
-        animation-range: entry 0% cover 60%;
+        animation-range: entry 0px entry 150px;
     }
 }
 
