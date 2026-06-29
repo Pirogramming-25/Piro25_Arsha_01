@@ -1,6 +1,6 @@
 #preview-bar {
     height: 28px;
-    background-color: #3d4d6a;
+    background-color: #023b6d;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -124,7 +124,7 @@
 }
 
 #header {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #37517e;
     padding: 32px 0;
     position:fixed;
     top: 28px;

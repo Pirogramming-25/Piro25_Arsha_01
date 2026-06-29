@@ -3,6 +3,7 @@
     padding: 170px 0 70px;
     width: 100vw;
     margin-left: calc(50% - 50vw);
+    overflow: clip;
 }
 
 .hero-container {
