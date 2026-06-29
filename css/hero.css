@@ -66,12 +66,12 @@
     font-weight: 600;
 }
 
-.hero-video-btn i {
+.hero-video-btn svg {
     font-size: 32px;
     color: #ffffff;
 }
 
-.hero-video-btn:hover i {
+.hero-video-btn:hover svg {
     color: #47b2e4;
 }
 

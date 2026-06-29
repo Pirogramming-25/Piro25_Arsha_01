@@ -39,23 +39,30 @@
     display: block;
 }
 
+.preview-icon {
+    width: 18px;
+    height: 18px;
+    color: currentColor;
+    display: block;
+}
+
 .preview-device-icons {
     display: flex;
     align-items: center;
     gap: 18px;
 }
 
-.preview-device-icons i {
+.preview-device-icons svg {
     font-size: 20px;
     color: #9bb7ce;
 }
 
-.preview-device-icons a:first-child i {
+.preview-device-icons a:first-child svg {
     color:#ffffff;
 }
 
-.preview-device-icons a:nth-child(2) i,
-.preview-device-icons a:nth-child(3) i {
+.preview-device-icons a:nth-child(2) svg,
+.preview-device-icons a:nth-child(3) svg {
     color: #7f95ab;
 }
 
@@ -73,7 +80,7 @@
     font-weight: 700;
 }
 
-.preview-center i {
+.preview-center svg {
     font-size: 20px;
     line-height: 1;
 }
@@ -82,7 +89,7 @@
     gap: 22px;
 }
 
-.preview-right > i {
+.preview-right > svg {
     color:#9bb7ce;
     font-size: 22px;
 }
@@ -116,9 +123,9 @@
     cursor: pointer;
 }
 
-.preview-device-icons a:hover i,
-.preview-center a:hover i,
-.preview-right>a:hover i {
+.preview-device-icons a:hover svg,
+.preview-center a:hover svg,
+.preview-right>a:hover svg {
     color: white;
     transition: color 0.3s;
 }
@@ -131,6 +138,9 @@
     left: 0;
     width: 100%;
     z-index: 9998;
+    animation: header-bg-change linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 100px;
 }
 
 .header-container {
@@ -200,7 +210,7 @@
     gap: 6px;
 }
 
-.header-dropdown i {
+.header-dropdown svg {
     font-size: 12px;
 }
 
@@ -266,6 +276,12 @@
     transition: 0.3s;
 }
 
+.deep-dropdown a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .deep-dropdown:hover .deep-menu {
     opacity: 1;
     visibility: visible;
@@ -317,7 +333,7 @@
     #preview-bar {
         display: none;
     }
-    
+
     #header {
         width: 100%;
         max-width: 100%;
@@ -365,5 +381,14 @@
 
     .header-logo a {
         font-size: 26px;
+    }
+}
+
+@keyframes header-bg-change {
+    from {
+        background-color: #37517e;
+    }
+    to {
+        background-color: rgba(40, 58, 90, 0.9);
     }
 }

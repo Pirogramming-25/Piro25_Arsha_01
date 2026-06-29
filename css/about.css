@@ -86,7 +86,7 @@
     color: #444;
 }
 
-.about-left li i {
+.about-left li svg {
     color: #47b2e4;
     font-size: 20px;
 }
@@ -192,14 +192,14 @@
     font-weight: 600;
 }
 
-.about-faq-item summary i {
+.about-faq-item summary svg {
     color: #37517e;
     font-size: 16px;
     transition: 0.3s;
 }
 
 .about-faq-item[open] summary strong,
-.about-faq-item[open] summary i {
+.about-faq-item[open] summary svg {
     color:#47b2e4;
 }
 
@@ -320,18 +320,18 @@
     font-family: "Jost", sans-serif;
 }
 
-.about-faq-item summary i {
+.about-faq-item summary svg {
     color: #37517e;
     font-size: 16px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.about-faq-item[open] summary i {
+.about-faq-item[open] summary svg {
     transform: rotate(90deg);
     color: #47b2e4;
 }
 
-.about-left li i {
+.about-left li svg {
     color: #47b2e4;
 }
 
