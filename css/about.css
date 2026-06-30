@@ -1,0 +1,443 @@
+#about {
+    background: #fff;
+}
+
+.about-us {
+    padding: 60px;
+}
+
+.about-skills {
+    background: #fff;
+    padding: 60px 0;
+}
+
+.about-container {
+    width: 86%;
+    margin: 0 auto;
+}
+
+.about-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-title h2 {
+    font-size: 32px;
+    font-weight: 800;
+    font-family: "Jost", sans-serif;
+    color: #37517e;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.about-title h2::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 1px;
+    background: #ddd;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-title h2::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: #47b2e4;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-content {
+    display: flex;
+    gap: 45px;
+}
+
+.about-left,
+.about-right {
+    width: 50%;
+}
+
+.about-left p,
+.about-right p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.about-left ul {
+    margin-top: 16px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.about-left li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.about-left li svg {
+    color: #47b2e4;
+    font-size: 20px;
+}
+
+.about-btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 10px 34px;
+    color: #47b2e4;
+    border: 2px solid #47b2e4;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "Jost", sans-serif;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.about-btn::after {
+    content: " →"
+}
+
+.about-btn:hover {
+    background: #47b2e4;
+    color: #fff;
+    text-decoration: none;
+}
+
+.about-why {
+    background: #f3f5fa;
+    padding: 80px 0;
+}
+
+.about-why-container {
+    width: 86%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.about-why-text {
+    width:58%;
+    font-family: "Open Sans", sans-serif;
+}
+
+.about-why-text h3 {
+    color: #37517e;
+    font-family: "Jost", sans-serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.about-why-text h3 strong {
+    font-weight: 700;
+}
+
+.about-why-text > p {
+    color: #848484;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.about-faq-item {
+    background: #fff;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+.about-faq-item:not([open]) p {
+    display: none;
+}
+
+.about-faq-item summary {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 45px 1fr 20px;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Jost", sans-serif;
+    color: #37517e;
+}
+
+.about-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.about-faq-item summary span {
+    color: #47b2e4;
+    font-weight: 600;
+    margin-right: 18px;
+}
+
+.about-faq-item summary strong {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.about-faq-item summary svg {
+    color: #37517e;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.about-faq-item[open] summary strong,
+.about-faq-item[open] summary svg {
+    color:#47b2e4;
+}
+
+.about-faq-item p {
+    margin-top: 20px;
+    padding-left: 45px;
+    color: #444;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.about-why-image {
+    width: 42%;
+    flex-shrink: 0;
+}
+
+.about-why-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.about-why-container:has(.about-faq-item:nth-child(2)[open]) .about-why-image img,
+.about-why-container:has(.about-faq-item:nth-child(3)[open]) .about-why-image img {
+    transform: scale(1.06);
+}
+
+.about-skills-container {
+    width: 86%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-skills-img {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.about-skills-img img {
+    width: 100%;
+    display: block;
+}
+
+.about-skills-text {
+    width: 50%;
+}
+
+.about-skills-text h3 {
+    color: #37517e;
+    font-size: 32px;
+    font-weight: 700;
+    font-family:"Jost", sans-serif;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.about-skills-text > p {
+    color: #666;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.skill {
+    margin-bottom: 24px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    color: #37517e;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.skill-bar {
+    height: 10px;
+    background: #e8edf5;
+}
+
+.skill-fill {
+    height: 10px;
+    background: #37517e;
+}
+
+.skill-fill.html {
+    width: 100%;
+}
+
+.skill-fill.css {
+    width:90%;
+}
+
+.skill-fill.javascript {
+    width: 75%;
+}
+
+.skill-fill.photoshop {
+    width: 55%;
+}
+
+.about-skills {
+    background: #fff;
+    padding: 60px 0;
+}
+
+.about-faq-item[open] p {
+    display: block;
+}
+
+.about-faq-item summary {
+    font-family: "Jost", sans-serif;
+}
+
+.about-faq-item summary svg {
+    color: #37517e;
+    font-size: 16px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-faq-item[open] summary svg {
+    transform: rotate(90deg);
+    color: #47b2e4;
+}
+
+.about-left li svg {
+    color: #47b2e4;
+}
+
+.about-btn,
+.about-btn:visited,
+.about-btn:hover {
+    text-decoration: none;
+}
+
+/* ===== 스크롤 애니메이션 ===== */
+
+@keyframes about-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .about-title h2 {
+        animation: about-fade-up 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 30% entry 60%;
+    }
+
+    .about-content {
+        animation: about-fade-up 1.5s ease both;
+        animation-timeline: view();
+        animation-range: entry 85% cover 20%;
+    }
+
+    /* h3, p, img 동시 등장 */
+    .about-why-text h3,
+    .about-why-text > p,
+    .about-why-image img {
+        animation: about-fade-up 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 30% entry 60%;
+    }
+
+    /* faq-item 1, 2, 3 미세한 차이로 등장 */
+    .about-faq-item:nth-child(1) {
+        animation: about-fade-up 1.3s ease both;
+        animation-timeline: view();
+        animation-range: entry 76% cover 25%;
+    }
+
+    .about-faq-item:nth-child(2) {
+        animation: about-fade-up 1.3s ease both;
+        animation-timeline: view();
+        animation-range: entry 78% cover 25%;
+    }
+
+    .about-faq-item:nth-child(3) {
+        animation: about-fade-up 1.3s ease both;
+        animation-timeline: view();
+        animation-range: entry 80% cover 25%;
+    }
+}
+
+/* ===== about-skills 애니메이션 ===== */
+
+@keyframes about-skills-up {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fill-html       { from { width: 0; } to { width: 100%; } }
+@keyframes fill-css        { from { width: 0; } to { width: 90%; } }
+@keyframes fill-javascript { from { width: 0; } to { width: 75%; } }
+@keyframes fill-photoshop  { from { width: 0; } to { width: 55%; } }
+
+@supports (animation-timeline: view()) {
+    .about-skills-container {
+        view-timeline-name: --skills;
+        view-timeline-axis: block;
+        animation: about-skills-up 0.8s ease both;
+        animation-timeline: view();
+        animation-range: entry 10% entry 70%;
+    }
+
+    .skill-fill.html {
+        animation: fill-html 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 10% cover 60%;
+    }
+
+    .skill-fill.css {
+        animation: fill-css 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 15% cover 65%;
+    }
+
+    .skill-fill.javascript {
+        animation: fill-javascript 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 20% cover 70%;
+    }
+
+    .skill-fill.photoshop {
+        animation: fill-photoshop 1.2s ease both;
+        animation-timeline: --skills;
+        animation-range: cover 25% cover 75%;
+    }
+}

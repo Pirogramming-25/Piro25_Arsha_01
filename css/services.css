@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Jost:wght@400;600;700&display=swap');
+
+/* ===== Services Section ===== */
+
+#services {
+    padding: 60px 0;
+    background-color: #f5f6f8;
+    color: var(--color-text);
+    font-family: "Open Sans", system-ui, sans-serif;
+    scroll-margin-top: 88px;
+    overflow: clip;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#services .container {
+    max-width: 1320px;
+    padding: 0 30px;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-family: 'Jost', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: var(--color-dark);
+}
+
+/* 회색바 + 파란바 */
+.section-title h2::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 160px;
+    height: 1px;
+    background: color-mix(in srgb, var(--color-text), transparent 60%);
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-main);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.section-title p {
+    color: var(--color-text);
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Services Grid - 4 columns */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Service Card */
+.service-card {
+    background: var(--color-white);
+    padding: 30px 30px 30px 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+    text-align: left;
+    border-top: 3px solid transparent;
+    position: relative;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+    translate: 0 0;
+    transition: translate 0.3s ease;
+}
+
+.service-card:hover {
+    translate: 0 -6px;
+}
+
+/* card Icon */
+.service-card .icon {
+    margin-bottom: 20px;
+    color: var(--color-main);
+}
+
+.service-card .icon svg,
+.service-card .icon img {
+    width: 36px;
+    height: 36px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.service-card h4 a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-card:hover h4 a {
+    color: var(--color-main);
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: -15px;
+    bottom: 0;
+    left: -15px;
+    z-index: 1;
+    content: "";
+}
+
+.service-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* ===== 반응형 ===== */
+
+/* (1199px): 4열 → 2열 */
+@media (max-width: 1199px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* (991px): 패딩 축소 */
+@media (max-width: 991px) {
+    #services {
+        padding: 50px 0;
+    }
+
+    .services-grid {
+        gap: 16px;
+    }
+}
+
+/* (767px): 2열 → 1열 + 타이틀·카드 크기 축소 */
+@media (max-width: 767px) {
+    #services {
+        padding: 40px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .section-title h2 {
+        font-size: 26px;
+    }
+
+    .section-title {
+        padding-bottom: 30px;
+    }
+
+    .service-card {
+        padding: 22px;
+    }
+}
+
+/* (575px): 추가 축소 */
+@media (max-width: 575px) {
+    .section-title h2 {
+        font-size: 22px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+}
+
+/* (430px 이하) */
+@media (max-width: 430px) {
+    .section-title h2 {
+        font-size: 20px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    .service-card {
+        padding: 16px;
+    }
+
+    .service-card h4 {
+        font-size: 18px;
+    }
+}
+
+/* ===== 스크롤 애니메이션 ===== */
+
+/* 아래에서 위로 올라오며 나타나는 효과 */
+@keyframes services-fade-up {
+    from { opacity: 0; transform: translateY(40px); } /* 40px 아래에서 시작 */
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@supports (animation-timeline: view()) {
+    /* 섹션 타이틀: 50% 진입 시 등장 */
+    #services .section-title {
+        animation: services-fade-up 1s ease-out both;
+        animation-timeline: view();
+        animation-range: entry 50% entry 80%;
+    }
+
+    #services .service-card {
+        animation: services-fade-up 1s ease-out both;
+        animation-timeline: view();
+    }
+
+    /* 카드 1~4: 10%씩 딜레이를 두어 왼쪽에서 오른쪽 순서로 등장 */
+    #services .service-card:nth-child(1) { animation-range: entry 50% entry 80%; }
+    #services .service-card:nth-child(2) { animation-range: entry 60% entry 90%; }
+    #services .service-card:nth-child(3) { animation-range: entry 70% entry 100%; }
+    #services .service-card:nth-child(4) { animation-range: entry 80% entry 100%; }
+}

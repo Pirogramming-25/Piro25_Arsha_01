@@ -1,0 +1,183 @@
+.portfolio .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.portfolio {
+  font-family: 'Jost', sans-serif;
+  padding: 60px 0;
+}
+
+.portfolio-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+.portfolio-filters label {
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--default-color, #444);
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.portfolio-filters label:hover {
+  color: var(--accent-color, #47b2e4);
+}
+
+#filter-all:checked ~ .portfolio-filters label[for="filter-all"],
+#filter-app:checked ~ .portfolio-filters label[for="filter-app"],
+#filter-card:checked ~ .portfolio-filters label[for="filter-card"],
+#filter-web:checked ~ .portfolio-filters label[for="filter-web"] {
+  color: #fff;
+  background-color: var(--accent-color, #47b2e4);
+}
+
+.portfolio-grid {
+  column-count: 3;
+  column-gap: 25px;
+}
+
+#filter-app:checked ~ .portfolio-grid .portfolio-item:not(.filter-app),
+#filter-card:checked ~ .portfolio-grid .portfolio-item:not(.filter-card),
+#filter-web:checked ~ .portfolio-grid .portfolio-item:not(.filter-web) {
+  display: none;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  break-inside: avoid;
+  margin-bottom: 25px;
+}
+.portfolio-item img {
+  display: block;
+  width: 100%;
+  height: auto;       
+  transition: transform 0.4s ease;
+}
+.portfolio-item:hover img {
+  transform: scale(1.08);
+}
+
+/* 호버 정보 박스 */
+.portfolio-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -100px;
+  opacity: 0;
+  padding: 13px 25px 13px 18px;
+  background: rgba(255, 255, 255, 0.85);   
+  transition: all 0.35s ease;
+}
+.portfolio-item:hover .portfolio-info {
+  bottom: 0;
+  opacity: 1;
+}
+.portfolio-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--heading-color, #42517A);
+}
+.portfolio-info p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #777;
+}
+.portfolio-links {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 12px;
+}
+.portfolio-links a {
+  color: #555;
+  display: flex;
+  transition: color 0.3s;
+}
+.portfolio-links a:hover {
+  color: var(--accent-color, #47b2e4);
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 991px) {
+  .portfolio-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 575px) {
+  .portfolio-grid {
+    column-count: 1;
+  }
+}
+
+@keyframes portfolio-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#filter-all:checked ~ .portfolio-grid .portfolio-item {
+  animation: portfolio-fade-in 0.45s ease;
+}
+#filter-app:checked ~ .portfolio-grid .portfolio-item.filter-app {
+  animation: portfolio-fade-in 0.45s ease 0.01s;
+}
+#filter-card:checked ~ .portfolio-grid .portfolio-item.filter-card {
+  animation: portfolio-fade-in 0.45s ease;
+}
+#filter-web:checked ~ .portfolio-grid .portfolio-item.filter-web {
+  animation: portfolio-fade-in 0.45s ease 0.01s;
+}
+
+/* ===== Web 필터: flex 전환 + 순서 + 반응형 ===== */
+#filter-web:checked ~ .portfolio-grid {
+  column-count: unset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: flex-start;
+}
+#filter-web:checked ~ .portfolio-grid .portfolio-item.filter-web {
+  margin-bottom: 0;
+  flex: 0 0 calc((100% - 50px) / 3);
+}
+
+/* 순서: 페인트통 → 마커손 → 블랙북 */
+#filter-web:checked ~ .portfolio-grid .portfolio-item:nth-child(7) { order: 1; }
+#filter-web:checked ~ .portfolio-grid .portfolio-item:nth-child(2) { order: 2; }
+#filter-web:checked ~ .portfolio-grid .portfolio-item:nth-child(6) { order: 3; }
+
+/* 태블릿: 2열 */
+@media (max-width: 991px) {
+  #filter-web:checked ~ .portfolio-grid .portfolio-item.filter-web {
+    flex: 0 0 calc((100% - 25px) / 2);
+  }
+}
+/* 모바일: 1열 */
+@media (max-width: 575px) {
+  #filter-web:checked ~ .portfolio-grid .portfolio-item.filter-web {
+    flex: 0 0 100%;
+  }
+}

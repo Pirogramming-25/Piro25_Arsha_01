@@ -1,0 +1,35 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-main: #47b2e4;   /* 메인 하늘색 (링크, 버튼, 강조) */
+  --color-dark:    #37517e;   /* 진한 남색 (제목, 헤더 텍스트) */
+  --color-accent:  #209dd8;   /* 버튼 hover 등 보조 파랑 */
+  --color-text:    #444444;   /* 본문 글자 */
+  --color-bg-soft: #f3f5fa;   /* 옅은 회청색 섹션 배경 */
+  --color-white:   #ffffff;
+}
+
+
+/* 공통버튼 디자인 */
+.btn {
+  padding: 10px 24px;
+  background: var(--color-main);
+  color: #fff;
+  border-radius: 50px;
+  border: none
+}
+
+.post-meta i,
+.blog-detail i,
+.contact-info-addr i,
+.contact-info-call i,
+.contact-info-email i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

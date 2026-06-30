@@ -1,0 +1,250 @@
+/* ===== Work Process Section ===== */
+
+#workProcess {
+    color: var(--color-text);
+    background-color: var(--color-white);
+    padding: 60px 0;
+    scroll-margin-top: 88px;
+    overflow: clip;
+}
+
+/* Grid - 3 columns */
+.wp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Card */
+.wp-card {
+    border: 1px solid #e8ecef;
+    border-radius: 8px;
+    overflow: visible;
+    background: var(--color-white);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wp-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Image area */
+.wp-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    background: #ffffff;
+    height: 260px;
+}
+
+.wp-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.wp-card:hover .wp-img img {
+    transform: scale(1.08);
+}
+
+.wp-step {
+    position: absolute;
+    left: 40px;
+    top: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-main);
+    color: var(--color-white);
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+/* Text content */
+.wp-body {
+    position: relative;
+    padding: 40px 30px 30px;
+}
+
+.wp-body h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 15px;
+}
+
+.wp-body > p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: color-mix(in srgb, var(--color-text), transparent 20%);
+    margin: 0 0 25px 0;
+}
+
+/* Checklist */
+.wp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wp-list li {
+    font-size: 14px;
+    color: color-mix(in srgb, var(--color-text), transparent 15%);
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+/* ===== 반응형 ===== */
+
+/* lg 이하 (991px): 3열 → 1열 */
+@media (max-width: 991px) {
+    #workProcess {
+        padding: 50px 0;
+    }
+
+    .wp-grid {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+
+    .wp-img {
+        height: 300px;
+    }
+}
+
+/* md 이하 (767px): 패딩·본문 축소 */
+@media (max-width: 767px) {
+    #workProcess {
+        padding: 40px 0;
+    }
+
+    .wp-grid {
+        max-width: 100%;
+    }
+
+    .wp-body {
+        padding: 36px 24px 24px;
+    }
+
+    .wp-body h3 {
+        font-size: 20px;
+    }
+
+    .wp-img {
+        height: 240px;
+    }
+}
+
+/* sm 이하 (575px): 이미지·번호 추가 축소 */
+@media (max-width: 575px) {
+    .wp-body {
+        padding: 36px 16px 16px;
+    }
+
+    .wp-img {
+        height: 200px;
+    }
+
+    .wp-step {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        left: 20px;
+        top: -25px;
+    }
+}
+
+/* 소형 모바일 (430px 이하) */
+@media (max-width: 430px) {
+    .wp-body {
+        padding: 32px 14px 14px;
+    }
+
+    .wp-body h3 {
+        font-size: 18px;
+    }
+
+    .wp-img {
+        height: 180px;
+    }
+}
+
+/* ===== 스크롤 애니메이션 ===== */
+
+@keyframes wp-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 지원 브라우저(Chrome/Edge)에서만 애니메이션 적용
+   미지원 브라우저는 카드가 정상 표시됨 */
+@supports (animation-timeline: view()) {
+    #workProcess .section-title {
+        animation: wp-fade-up 0.7s ease both;
+        animation-timeline: view();
+        animation-range: entry 40% entry 70%;
+    }
+
+    /* 데스크탑 3열: 순차 등장 */
+    .wp-card:nth-child(1) {
+        animation: wp-fade-up 0.7s ease both;
+        animation-timeline: view();
+        animation-range: entry 30% entry 65%;
+    }
+
+    .wp-card:nth-child(2) {
+        animation: wp-fade-up 0.7s ease both;
+        animation-timeline: view();
+        animation-range: entry 40% entry 75%;
+    }
+
+    .wp-card:nth-child(3) {
+        animation: wp-fade-up 0.7s ease both;
+        animation-timeline: view();
+        animation-range: entry 50% entry 85%;
+    }
+
+    /* 모바일 1열: 각 카드 개별 진입 타이밍으로 통일 */
+    @media (max-width: 991px) {
+        .wp-card:nth-child(1),
+        .wp-card:nth-child(2),
+        .wp-card:nth-child(3) {
+            animation-range: entry 20% entry 55%;
+        }
+    }
+}
+
+.wp-list li::before {
+    content: '✓';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-main);
+    color: var(--color-main);
+    font-size: 11px;
+    font-weight: 700;
+}
